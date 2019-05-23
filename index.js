@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
 import { createLogger, format, transports } from 'winston';
+// import busboy from 'connect-busboy';
 import auth from './src/api/middleware/authentication/authenticate';
 import userRouter from './src/api/routes/user';
 
@@ -22,6 +23,7 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(busboy());
 
 app.use(express.static(`${__dirname}/public`));
 app.use(auth.initialize());
@@ -29,12 +31,12 @@ app.use('/api/users', userRouter);
 
 app.get('/', (req, res) => res.status(200).send({
   status: 'connection successful',
-  message: 'Welcome to Boiler Plate!',
+  message: 'Welcome to Boiler Plate!'
 }));
 
 app.get('*', (req, res) => res.status(200).send({
   status: 'fail',
-  message: 'Route not found',
+  message: 'Route not found'
 }));
 
 app.listen(port, () => {
