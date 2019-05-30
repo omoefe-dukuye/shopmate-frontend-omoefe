@@ -6,6 +6,7 @@ import { createLogger, format, transports } from 'winston';
 // import busboy from 'connect-busboy';
 import auth from './src/api/middleware/authentication/authenticate';
 import userRouter from './src/api/routes/user';
+import adminRouter from './src/api/routes/admin';
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 app.use(auth.initialize());
 app.use('/api/users', userRouter);
+app.use('/api/admin', adminRouter);
 
 app.get('/', (req, res) => res.status(200).send({
   status: 'connection successful',
