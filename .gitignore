@@ -47,3 +47,6 @@ env
 
 # Traspiled code
 dist/
+
+public/dist/
+.env*
