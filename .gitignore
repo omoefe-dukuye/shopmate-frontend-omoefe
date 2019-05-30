@@ -8,6 +8,7 @@ npm-debug.log*
 dist
 ideas
 
+uploads
 # Runtime data
 pids
 *.pid

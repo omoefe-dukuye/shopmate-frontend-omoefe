@@ -27,6 +27,7 @@
     "bcrypt": "^3.0.3",
     "chalk": "^2.4.2",
     "cloudinary": "^1.13.2",
+    "connect-busboy": "0.0.2",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
@@ -38,6 +39,7 @@
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.3.0",
     "moment": "^2.24.0",
+    "multer": "^1.4.1",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^1.0.0",
@@ -48,6 +50,8 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.42.0",
     "sequelize-auto-migrations": "^1.0.3",
+    "uuid": "^3.3.2",
+    "vimeo": "^2.1.1",
     "winston": "^3.2.0"
   },
   "devDependencies": {

@@ -40,6 +40,11 @@ module.exports = {
           len: [8, 72]
         },
       },
+      role: {
+        defaultValue: 'user',
+        type: Sequelize.ENUM,
+        values: ['user', 'admin']
+      },
       isVerified: {
         defaultValue: false,
         allowNull: false,
