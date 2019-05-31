@@ -7,7 +7,6 @@ import dotenv from 'dotenv';
 const env = process.env.NODE_ENV;
 dotenv.config({ path: `.env.${env === 'test' ? 'test' : 'development'}` });
 
-
 export default {
   entry: ['@babel/polyfill', './src/client/app.jsx'],
   output: {
@@ -15,26 +14,39 @@ export default {
     filename: 'bundle.js'
   },
   module: {
-    rules: [{
-      loader: 'babel-loader',
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/
-    }, {
-      test: /\.s?css$/,
-      use: [
-        ExtractTextPlugin.loader, {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
+    rules: [
+      {
+        loader: 'babel-loader',
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg|ttf|woff2|woff|eot)$/,
+        use: [
+          {
+            loader: 'url-loader'
           }
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
+        ]
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          ExtractTextPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
           }
-        }
-      ]
-    }]
+        ]
+      }
+    ]
   },
   plugins: [
     new ExtractTextPlugin({ filename: 'styles.css' }),
