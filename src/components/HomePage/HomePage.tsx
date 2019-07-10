@@ -1,0 +1,14 @@
+import * as React from 'react'
+import GridSection from './GridSection'
+import Jumbotron from './Jumbotron'
+
+const HomePage: React.FC = () => (
+  <div className="home-page">
+    <Jumbotron />
+    <div className="content-wrapper">
+      <GridSection />
+    </div>
+  </div>
+)
+
+export default HomePage

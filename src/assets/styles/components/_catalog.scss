@@ -1,0 +1,110 @@
+.catalog {
+  &__categories {
+    display: flex;
+    justify-content: center;
+    .content-wrapper {
+      height: 100%;
+    }
+    @include bg('images-modal4.png');
+    height: 33vw;
+    &__text {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 80%;
+      &__nav {
+        display: flex;
+        justify-content: space-between;
+        &__item {
+          &--active {
+            color: $pink;
+          }
+        }
+      }
+
+      &__description {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        p {
+          color: white;
+          font-size: 2rem;
+          font-style: italic;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  &__filtered-products {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 3fr;
+    margin: 2rem auto;
+    &__wrapper {
+      text-align: center;
+    }
+    &__filters {
+      @include card-base;
+      flex-direction: column;
+      &__header {
+        h2 {
+          font-weight: 300;
+          span {
+            font-weight: 600;
+          }
+        }
+      }
+      &__categories {
+        > div {
+          display: flex;
+          align-items: center;
+          p {
+            text-indent: 1rem;
+          }
+        }
+      }
+      &__attributes {
+        .filter-attributes__color {
+          &__header {
+            margin: 0;
+            text-align: left;
+          }
+          &__content {
+            &__tip {
+              height: 2rem;
+            }
+            &__color-items {
+              display: grid;
+              grid-gap: 2px;
+              grid-template-columns: repeat(5, 1fr);
+              .color-item-wrapper {
+                display: flex;
+                align-items: center;
+                border-radius: 50%;
+                justify-content: center;
+                height: 2.5rem;
+                width: 2.5rem;
+                &.selected {
+                  border: 1px solid #999;
+                }
+                .color-item {
+                  border-radius: 50%;
+                  cursor: pointer;
+                  width: 1.5rem;
+                  height: 1.5rem;
+                  transition: border-radius .5s ease;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__products {
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 36rem);
+    }
+  }
+}

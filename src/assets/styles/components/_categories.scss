@@ -1,0 +1,19 @@
+.categories {
+  display: flex;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: space-between;
+  width: 80%;
+  transition: $header-width-transition;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: 1.3rem;
+  }
+  &.search-bar-open {
+    width: 90%;
+    @media (max-width: $desktop-breakpoint) {
+      font-size: 1.3rem;
+      font-weight: 500;
+      width: 80%;
+    }
+  }
+}

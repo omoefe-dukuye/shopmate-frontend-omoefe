@@ -1,0 +1,73 @@
+html {
+  font-size: 10px;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background: #F7F7F7;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  @media (max-width: $desktop-breakpoint) {
+    font-size: 1.2rem;
+  }
+}
+
+svg {
+  cursor: pointer;
+}
+
+.content-wrapper {
+  width: $content-width-desktop;
+  margin: 0 auto;
+  @media (max-width: $desktop-breakpoint) {
+    max-width: $content-width-tab;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    width: 95%;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  background: $pink;
+  border: 1px solid $pink;
+  border-radius: 3rem;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  cursor: pointer;
+  outline: none;
+  padding: 1.5rem 4rem;
+  text-decoration: none;
+  &:hover {
+    background: white;
+    border: 1px solid $pink;
+    color: $pink;
+  }
+  &--reverse {
+    border: 1px solid white;
+    color: $pink;
+    font-weight: 500;
+    background: white;
+    &:hover {
+      background: $pink;
+      border: 1px solid white;
+      color: white;
+    }
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}

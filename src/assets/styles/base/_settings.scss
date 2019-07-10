@@ -1,0 +1,46 @@
+// Color
+$pink: #F62F5E;
+$dark-grey: #2E2E2E;
+$dark-grey-text: #6C6C6C;
+$overlay-dark-bg: rgba(247, 247, 247, 0.5);
+$overlay-light-bg: rgba(50, 50, 50, 0.2);
+$cyan: #00D3CA;
+
+$desktop-breakpoint: 1280px;
+$mobile-breakpoint: 720px;
+$content-width-desktop: 1080px;
+$content-width-tab: 720px;
+
+$header-width-transition: width 0.3s ease-out;
+
+@mixin bg($img) {
+  background: url('/images/#{$img}') no-repeat;
+  background-size: cover;
+}
+
+@mixin device($size) {
+  @if $size == phone {
+    @media (max-width: 720px) { @content; }
+  } @else if $size == tab {
+    @media (max-width: 1280px) { @content; }
+  }
+}
+
+@mixin card-base {
+  background: white;
+  box-shadow: 0.3rem 0.3rem 1rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow .5s;
+  &:hover {
+    box-shadow: 0.3rem 0.3rem 5rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+@mixin center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

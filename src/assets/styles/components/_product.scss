@@ -1,0 +1,147 @@
+
+.product {
+  &__container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+    &.rotate {
+      perspective: 120rem;
+      &:hover .product__side--front {
+        transform: rotateY(-180deg)
+      }
+  
+      &:hover .product__side--back {
+        transform: rotateY(0)
+      }
+    }
+
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 72%;
+  &--box1 {
+    flex-direction: row;
+    margin: 0;
+    width: auto;
+  }
+  &__side {
+    @include card-base;
+    align-items: center;
+    backface-visibility: hidden;
+    display: flex;
+    position: absolute;
+    transition: all 0.8s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &--box1 {
+      position: relative;
+    }
+    &--back {
+      background: linear-gradient(135deg, $pink, darken($pink, 30%));
+      flex-direction: column;
+      transform: rotateY(180deg);
+      .description {
+        margin: 2rem auto;
+        padding: 0 1rem; 
+        p {
+          color: white;
+          text-align: center;
+        }
+      }
+      .action {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 8.5rem;
+        justify-content: space-between;
+      }
+    }
+    .ad-text {
+      background: $pink;
+      border-radius: 0.4rem;
+      color: white;
+      font-weight: 700;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0.25rem 1rem;
+      text-transform: uppercase;
+    }
+    .card-cart {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 0.25rem 1rem;
+      svg {
+        height: 2rem;
+      }
+    }
+    &--box1 {
+      .ad-text {
+        background: $cyan;
+        padding: 0.4rem 1rem;
+      }
+    }
+  }
+  &__picture {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+    &--box1 {
+      align-items: center;
+      display: flex;
+      width: 30%;
+    }
+  }
+
+  &__info {
+    text-align: center;
+    width: 100%;
+    &--box1 {
+      padding: 4rem;
+      text-align: left;
+      width: 70%;
+      h2 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+      }
+      p {
+        color: $dark-grey-text;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.5;
+        @include device(tab) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+    h2 {
+      font-size: 2.5rem;
+      @include device(tab) {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+      }
+      @include device(phone) {
+        font-size: 2rem;
+      }
+    }
+    h3 {
+      color: $pink;
+      font-size: 2rem;
+      @include device(tab) {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+      @include device(phone) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
