@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import SearchBarView from './SearchBarView';
 
-const SearchBar: React.FC = () => <SearchBarView />
+const SearchBar: FC = () => <SearchBarView />
 
 export default SearchBar

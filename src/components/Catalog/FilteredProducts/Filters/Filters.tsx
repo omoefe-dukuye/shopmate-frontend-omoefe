@@ -3,18 +3,18 @@ import FilterAttributes from './FilterAttributes'
 import FilterCategories from './FilterCategories'
 import FilterHeader from './FilterHeader'
 
-interface IFilters {
-  info: {
+interface IFilters extends Readonly <{
+  info: Readonly <{
     productCount: number,
-  }
-}
+  }>,
+}> {}
 
-interface IFiltersContext {
+interface IFiltersContext extends Readonly <{
   selectedColors: string[],
   selectedSizes: string[],
   setColors(colors: string[]): void,
-  setSizes(sizes: string[]): void
-}
+  setSizes(sizes: string[]): void,
+}> {}
 
 export const FiltersContext = createContext({} as IFiltersContext)
 

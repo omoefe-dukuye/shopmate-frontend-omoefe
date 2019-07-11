@@ -3,7 +3,11 @@ import { IAttribute } from '../../../../../types'
 import FilterColor from './FilterColor'
 import FilterSize from './FilterSize'
 
-const FilterAttributesView: FC<{ attributes: IAttribute[] }> = ({ attributes }) => {
+interface IFilterAttributesView extends Readonly <{
+  attributes: ReadonlyArray<IAttribute>,
+}> {}
+
+const FilterAttributesView: FC<IFilterAttributesView> = ({ attributes }) => {
   const formattedAttributes = attributes.reduce((acc, { name, values }) => {
     return {
       ...acc,
@@ -11,7 +15,7 @@ const FilterAttributesView: FC<{ attributes: IAttribute[] }> = ({ attributes }) 
     }
   }, { color: [], size: [] })
   return (
-    <div>
+    <div className="filter-attributes">
       <FilterColor colors={formattedAttributes.color || []} />
       <FilterSize sizes={formattedAttributes.size || []} />
     </div>

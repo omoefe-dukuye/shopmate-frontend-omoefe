@@ -3,9 +3,11 @@ import { IPaginatedProducts } from '../../../types'
 import Product from '../../Product'
 import Filters from './Filters'
 
+interface IFilteredProductsView extends Readonly <{
+  products: IPaginatedProducts,
+}> {}
 
-
-const FilteredProductsView: FC<{ products: IPaginatedProducts }> = ({ products }) => (
+const FilteredProductsView: FC<IFilteredProductsView> = ({ products }) => (
   <div className="catalog__filtered-products">
     <Filters
       info={{

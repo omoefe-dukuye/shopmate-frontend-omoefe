@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { BagIcon } from '../../../assets/images/svg'
 import { HeaderStateContext } from '../Header'
 
-const CartView: React.FC = () => {
+const CartView: FC = () => {
   const { useContext } = React
   const { iconColor } = useContext(HeaderStateContext)
   return (

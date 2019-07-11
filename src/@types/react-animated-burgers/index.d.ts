@@ -1,7 +1,7 @@
 declare module 'react-animated-burgers' {
-  import * as React from 'react'
+  import React, { Component } from 'react'
 
-  export class HamburgerArrow extends React.Component<{
+  export class HamburgerArrow extends Component<{
     barColor: string,
     buttonWidth: number,
     isActive: boolean,

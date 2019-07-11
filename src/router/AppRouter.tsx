@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Catalog from '../components/Catalog'
 import Footer from '../components/Footer'
@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 import HomePage from '../components/HomePage'
 
 
-const AppRouter: React.FC = () => (
+const AppRouter: FC = () => (
   <BrowserRouter>
     <Header />
     <Switch>

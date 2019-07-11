@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import SideBarView from './SideBarView'
 
-const SideBar = () => <SideBarView />
+const SideBar: FC = () => <SideBarView />
 
 export default SideBar

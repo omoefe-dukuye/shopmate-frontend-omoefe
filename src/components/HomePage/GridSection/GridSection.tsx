@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { Query } from 'react-apollo'
 import { GET_PRODUCTS } from '../../../graphql/queries'
 import { IApolloResponse, IProductsResponse } from '../../../types'
 import GridSectionView from './GridSectionView'
 
-const GridSection: React.FC = () => (
+const GridSection: FC = () => (
   <Query
     query={GET_PRODUCTS}
     variables={{
@@ -18,7 +18,7 @@ const GridSection: React.FC = () => (
           <GridSectionView
             error={error}
             loading={loading}
-            products={data && data.products.products}
+            products={data && data.products && data.products.products}
           />
         )
       }

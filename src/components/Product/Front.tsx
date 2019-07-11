@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { BagIcon } from '../../assets/images/svg';
 
-interface IProduct {
+interface IProduct extends Readonly <{
   product: {
     image: string,
     name: string,
@@ -10,9 +10,9 @@ interface IProduct {
   },
   adText ?: string,
   mobile ?: boolean,
-}
+}> {}
 
-const CardFront: React.FC<IProduct> = ({
+const CardFront: FC<IProduct> = ({
   product: { image, name, description, price }, adText, mobile,
 }) => (
   <div className="product__side product__side--front">

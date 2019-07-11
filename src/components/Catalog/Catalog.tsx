@@ -3,9 +3,9 @@ import { RouteComponentProps } from 'react-router'
 import Categories from './Categories'
 import FilteredProducts from './FilteredProducts'
 
-interface ICatalogContext {
-  pathname: string
-}
+interface ICatalogContext extends Readonly <{
+  pathname: string,
+}> {}
 
 export const CatalogContext = createContext({ pathname: '/catalog' } as ICatalogContext)
 

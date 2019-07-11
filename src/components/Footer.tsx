@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 
-const Footer: React.FC = () => (
+const Footer: FC = () => (
   <div>
   </div>
 )

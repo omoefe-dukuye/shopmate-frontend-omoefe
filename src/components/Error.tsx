@@ -1,13 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import * as React from 'react'
-import { colors, IFontAwesomeIconSize } from '../types'
+import React, { FC } from 'react'
+import { colors, IFontAwesomeIcon } from '../types'
 
-interface IError {
-  color ?: colors
-}
-
-
-const Error: React.FC<IFontAwesomeIconSize & IError> = ({ size, color }) => (
+const Error: FC<IFontAwesomeIcon> = ({ size, color }) => (
   <div>
     <FontAwesomeIcon icon={'exclamation-triangle'} color={color} size={size} />
   </div>

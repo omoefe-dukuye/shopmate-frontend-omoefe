@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import CartView from './CartView'
 
-const Cart = () => <CartView />
+const Cart: FC = () => <CartView />

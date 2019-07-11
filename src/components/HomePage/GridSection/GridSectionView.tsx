@@ -4,9 +4,9 @@ import { IErrorLoading, IProductCard } from '../../../types'
 import Ad from './Ad'
 import Product from './Product'
 
-interface IGridSectionView extends IErrorLoading {
-  products: IProductCard[]
-}
+interface IGridSectionView extends IErrorLoading, Readonly <{
+  products: ReadonlyArray<IProductCard>,
+}> {}
 
 
 

@@ -1,12 +1,12 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { PulseLoader } from 'react-spinners'
 import { colors, IColors } from '../types'
 
-interface ILoader {
-  size ?: number
-}
+interface ILoader extends Readonly <{
+  size ?: number,
+}> {}
 
-const Loader: React.FC<ILoader & IColors> = ({ size, color }) => (
+const Loader: FC<ILoader & IColors> = ({ size, color }) => (
   <PulseLoader
     sizeUnit="rem"
     size={size}

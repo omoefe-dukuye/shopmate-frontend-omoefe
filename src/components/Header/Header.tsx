@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {  RouteComponentProps, withRouter } from 'react-router-dom'
 import { AppContext } from '../../App'
 import Cart from './Cart'
@@ -7,12 +7,12 @@ import Logo from './Logo'
 import SearchBar from './SearchBar'
 import SideBar from './SideBar'
 
-interface IHeaderState {
+interface IHeaderState extends Readonly <{
   iconColor: number,
   theme: string,
   isSearchBarOpen ?: boolean,
   setSearchBarState(arg0: boolean): any,
-}
+}> {}
 
 export const HeaderStateContext = React.createContext({} as IHeaderState)
 

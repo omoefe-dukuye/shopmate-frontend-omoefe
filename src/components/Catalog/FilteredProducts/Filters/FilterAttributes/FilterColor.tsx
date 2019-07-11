@@ -1,9 +1,11 @@
 import React, { FC, useContext, useState } from 'react'
 import { FiltersContext } from '../Filters'
 
+interface IFilterColor extends Readonly <{
+  colors: ReadonlyArray<string>,
+}> {}
 
-
-const FilterColor: FC<{colors: string[]}> = ({ colors }) => {
+const FilterColor: FC<IFilterColor> = ({ colors }) => {
   const [tipColor, setTipColor] = useState('')
   const { selectedColors, setColors } = useContext(FiltersContext)
   const handleClick = (color: string) => {
@@ -15,16 +17,18 @@ const FilterColor: FC<{colors: string[]}> = ({ colors }) => {
 
   return (
     <div className="filter-attributes__color">
-      <h2 className="filter-attributes__color__header">Color</h2>
-      <div className="filter-attributes__color__content">
-        <div className="filter-attributes__color__content__tip">{tipColor}</div>
-        <div className="filter-attributes__color__content__color-items">
+      <h2 className="filter-attributes__header">Color</h2>
+      <div className="filter-attributes__content">
+        <div className="filter-attributes__content__tip">{tipColor}</div>
+        <div className="filter-attributes__content__items filter-attributes__content__items--color">
           {
             colors.map(color => (
-              <div className={`color-item-wrapper${selectedColors.includes(color) ? ' selected' : ''}`}>
+              <div
+                className={`color-item-wrapper${selectedColors.includes(color) ? ' selected' : ''}`}
+                key={color}
+              >
                 <span
                   className="color-item"
-                  key={color}
                   style={{
                     background: color.toLowerCase(),
                     ...(

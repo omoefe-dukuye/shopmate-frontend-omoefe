@@ -16,9 +16,9 @@ const client = new ApolloClient({
   uri: 'https://omo-shopmate.herokuapp.com/',
 })
 
-interface IAppContext {
+interface IAppContext extends Readonly <{
   mobile ?: boolean | undefined,
-}
+}> {}
 
 export const AppContext = createContext({} as IAppContext)
 

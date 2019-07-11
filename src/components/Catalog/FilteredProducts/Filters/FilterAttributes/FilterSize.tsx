@@ -1,9 +1,11 @@
 import React, { FC, useContext } from 'react'
 import { FiltersContext } from '../Filters'
 
+interface IFilterSize extends Readonly <{
+  sizes: ReadonlyArray<string>,
+}> {}
 
-
-const FilterSize: FC<{sizes: string[]}> = ({ sizes }) => {
+const FilterSize: FC<IFilterSize> = ({ sizes }) => {
   const { selectedSizes, setSizes } = useContext(FiltersContext)
   const handleClick = (size: string) => {
     if (selectedSizes.includes(size)) {
@@ -14,9 +16,9 @@ const FilterSize: FC<{sizes: string[]}> = ({ sizes }) => {
 
   return (
     <div className="filter-attributes__size">
-      <h2 className="filter-attributes__size__header">Size</h2>
-      <div className="filter-attributes__size__content">
-        <div className="filter-attributes__size__content__size-items">
+      <h2 className="filter-attributes__header filter-attributes__header--size">Size</h2>
+      <div className="filter-attributes__content">
+        <div className="filter-attributes__content__items">
           {
             sizes.map(size => (
                 <span

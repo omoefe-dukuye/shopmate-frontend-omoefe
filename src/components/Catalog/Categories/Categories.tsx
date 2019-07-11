@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { Query } from 'react-apollo'
 import { GET_CATEGORIES } from '../../../graphql/queries'
-import { ICategoriesResponse, IApolloResponse } from '../../../types'
+import { IApolloResponse, ICategoriesResponse } from '../../../types'
 import Error from '../../Error'
 import Loader from '../../Loader'
 import CategoriesView from './CategoriesView'
 
-const Categories: React.FC = () => (
+const Categories: FC = () => (
   <div className="catalog__categories">
     <Query
       query={GET_CATEGORIES}

@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import GridSection from './GridSection'
 import Jumbotron from './Jumbotron'
 
-const HomePage: React.FC = () => (
+const HomePage: FC = () => (
   <div className="home-page">
     <Jumbotron />
     <div className="content-wrapper">

@@ -1,13 +1,13 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { AppContext } from '../../../App'
 import { CloseIcon, SearchIcon } from '../../../assets/images/svg'
 import { HeaderStateContext } from '../Header'
 
 
-const SearchBarView: React.FC = () => {
+const SearchBarView: FC = () => {
   const { useContext, useState, useRef } = React
   const [query, setQuery] = useState('')
-  const input = useRef<HTMLInputElement>(document.createElement('input'))
+  const input = useRef({} as HTMLInputElement)
   const {
     iconColor, setSearchBarState, isSearchBarOpen, theme,
   } = useContext(HeaderStateContext)

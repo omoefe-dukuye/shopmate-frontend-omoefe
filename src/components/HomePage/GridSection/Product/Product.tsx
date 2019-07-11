@@ -1,13 +1,13 @@
 import React from 'react'
-import { IErrorLoading, IProductCard } from '../../../../types'
+import { IApolloResponse, IProductCard } from '../../../../types'
 import Error from '../../../Error'
 import Loader from '../../../Loader'
 import ProductView from './ProductView'
 
-interface IProductBox extends IErrorLoading {
+interface IProductBox extends IApolloResponse, Readonly <{
   product: IProductCard,
   index: number,
-}
+}> {}
 
 const Box1: React.FC<IProductBox> = ({ loading, error, index, product }) => {
   if (loading) return <Loader />

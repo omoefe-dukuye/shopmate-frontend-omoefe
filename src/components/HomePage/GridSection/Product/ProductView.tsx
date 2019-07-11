@@ -1,15 +1,15 @@
-import React, { Fragment, useContext } from 'react'
+import React, { FC, Fragment, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../../../../App'
 import { IProductCard } from '../../../../types'
 import Product from '../../../Product'
 
-interface IProductView {
+interface IProductView extends Readonly <{
   product: IProductCard,
   index: number,
-}
+}> {}
 
-const ProductView: React.FC<IProductView> = ({ product, index }) => {
+const ProductView: FC<IProductView> = ({ product, index }) => {
   const { image, name, description } = product
   const { mobile } =  useContext(AppContext)
   const adText = 'top picks'

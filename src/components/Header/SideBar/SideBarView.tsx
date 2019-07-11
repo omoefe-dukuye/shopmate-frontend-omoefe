@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React, { FC } from 'react'
 import { HamburgerArrow } from 'react-animated-burgers'
 
-const SideBarView = () => {
+const SideBarView: FC = () => {
   const { useState } = React
   const [isActive, setAtiveState] = useState(false)
   return (

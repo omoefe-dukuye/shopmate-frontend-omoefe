@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { BagIcon } from '../../assets/images/svg'
 import { IProductCard } from '../../types'
 
-interface ICardBack {
+interface ICardBack extends Readonly <{
   product: IProductCard,
   adText ?: string,
-}
+}> {}
 
-const CardBack: React.FC<ICardBack> = ({
+const CardBack: FC<ICardBack> = ({
   product: { image, name, description, price, id }, adText,
 }) => (
   <div className="product__side product__side--back">

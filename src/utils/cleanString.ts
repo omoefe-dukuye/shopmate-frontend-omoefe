@@ -1,3 +1,5 @@
-const cleanString = (str: string): string => str.replace(/\W/g, '').toLowerCase()
+type cleanString = (str: string) => string
+
+const cleanString: cleanString = str => str.replace(/\W/g, '').toLowerCase()
 
 export default cleanString

@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from 'react'
+import React, { FC, ReactNode, useContext } from 'react'
 import { Query } from 'react-apollo'
 import { GET_PRODUCTS } from '../../../graphql/queries'
 import { IErrorLoading, IProductsResponse } from '../../../types'
@@ -7,7 +7,7 @@ import Loader from '../../Loader'
 import { CatalogContext } from '../Catalog'
 import FilteredProductsView from './FilteredProductsView'
 
-const FilteredProducts: React.FC = () => {
+const FilteredProducts: FC = () => {
   const { pathname } = useContext(CatalogContext)
   return (
     <div className="content-wrapper catalog__filtered-products__wrapper">

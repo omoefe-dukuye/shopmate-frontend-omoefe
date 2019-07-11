@@ -3,28 +3,28 @@ export enum colors {
   secondary = '#FFF',
 }
 
-export interface IFontAwesomeIconSize {
+export interface IFontAwesomeIcon extends IColors, Readonly <{
   size ?: 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x'
-}
+}> {}
 
-export interface IColors {
-  color ?: colors
-}
+export interface IColors extends Readonly <{
+  color ?: colors,
+}> {}
 
-export interface IApolloResponse {
+export interface IApolloResponse extends Readonly <{
   loading: boolean,
-  error?: any
-}
+  error?: any,
+}> {}
 
-export interface IOnClick {
-  onClick(): any
-}
+export interface IOnClick extends Readonly <{
+  onClick(): any,
+}> {}
 
-export interface IColor {
-  color: string
-}
+export interface IColor extends Readonly <{
+  color: string,
+}> {}
 
-export interface IProduct {
+export interface IProduct extends Readonly <{
   id: string,
   name: string,
   description: string,
@@ -34,9 +34,9 @@ export interface IProduct {
   image2: string,
   price: number,
   thumbnail: string,
-}
+}> {}
 
-export interface IProductCard {
+export interface IProductCard extends Readonly <{
   id: string,
   name: string,
   description: string,
@@ -44,63 +44,63 @@ export interface IProductCard {
   display: number,
   image: string,
   price: number,
-  rating: {
+  rating: Readonly <{
     value: number,
     count: number,
-  }
-  attributes: {
-    color: string[],
-    size: string[],
-  },
+  }>,
+  attributes: Readonly <{
+    color: ReadonlyArray<string>,
+    size: ReadonlyArray<string>,
+  }>,
   thumbnail: string,
-}
+}> {}
 
-export interface IPaginatedProducts {
+export interface IPaginatedProducts extends Readonly <{
   hasNext: boolean,
   startCursor: string,
   endCursor: string,
-  products: IProductCard[],
+  products: ReadonlyArray<IProductCard>,
   count: number,
-}
+}> {}
 
-export interface IProductsResponse {
-  data: {
+export interface IProductsResponse extends Readonly <{
+  data: Readonly<{
     products: IPaginatedProducts,
-  }
-}
+  }>,
+}> {}
 
-export interface IErrorLoading {
+export interface IErrorLoading extends Readonly <{
   loading: boolean,
   error ?: object,
-}
+}> {}
 
-export interface ICategory {
+export interface ICategory extends Readonly <{
   id: string,
   name: string,
   description: string,
-}
+}> {}
 
-export interface ICategoriesResponse {
-  data: {
-    categories: ICategory[],
-  }
-}
+export interface ICategoriesResponse extends Readonly <{
+  data: Readonly <{
+    categories: ReadonlyArray<ICategory>,
+  }>,
+}> {}
 
-export interface IRouter {
-  history: {
-    location: {
+export interface IRouter extends Readonly <{
+  history: Readonly <{
+    location: Readonly <{
       pathname: string,
-    },
-  },
-}
+    }>,
+  }>,
+}> {}
 
-export interface IAttribute {
+export interface IAttribute extends Readonly <{
   name: string
-  values: Array<{ value: string }>
-}
+  values: ReadonlyArray<{ value: string }>,
+}> {}
 
-export interface IAttributesResponse {
-  data: {
-    attributes: IAttribute[],
-  }
-}
+export interface IAttributesResponse extends Readonly <{
+  data: Readonly <{
+    attributes: ReadonlyArray<IAttribute>,
+  }>,
+}> {}

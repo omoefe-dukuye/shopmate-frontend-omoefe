@@ -1,4 +1,6 @@
-const getCategory = (category: string): string => {
+type getCategory = (category: string) => string
+
+const getCategory: getCategory = category => {
   if (category === 'valentines') {
     return 'Valentine\'s'
   }
