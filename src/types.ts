@@ -3,8 +3,20 @@ export enum colors {
   secondary = '#FFF',
 }
 
+
+enum productOrder {
+  ascendingId = 'id_ASC',
+  descendingId = 'id_DESC',
+  ascendingDiscountedPrice = 'discountedPrice_ASC',
+  descendingDiscountedPrice = 'discountedPrice_DESC',
+  ascendingName = 'name_ASC',
+  descendingName = 'name_DESC',
+  ascendingPrice = 'price_ASC',
+  descendingPrice = 'price_DESC',
+}
+
 export interface IFontAwesomeIcon extends IColors, Readonly <{
-  size ?: 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x'
+  size ?: 'xs' | 'lg' | 'sm' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x',
 }> {}
 
 export interface IColors extends Readonly <{
@@ -17,7 +29,7 @@ export interface IApolloResponse extends Readonly <{
 }> {}
 
 export interface IOnClick extends Readonly <{
-  onClick(): any,
+  onClick ?: () => void,
 }> {}
 
 export interface IColor extends Readonly <{
@@ -103,4 +115,19 @@ export interface IAttributesResponse extends Readonly <{
   data: Readonly <{
     attributes: ReadonlyArray<IAttribute>,
   }>,
+}> {}
+
+export interface IInputVariables extends Readonly <{
+  colors ?: ReadonlyArray<string>,
+  sizes ?: ReadonlyArray<string>,
+  priceRange ?: ReadonlyArray<number>,
+  query ?: string,
+  skip ?: number,
+  after ?: string,
+  orderBy ?: productOrder,
+}> {}
+
+export interface IProductVariables extends IInputVariables, Readonly <{
+  category ?: string,
+  first: number,
 }> {}

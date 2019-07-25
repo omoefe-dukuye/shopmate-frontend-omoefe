@@ -1,31 +1,37 @@
-import React, { FC, ReactNode, useContext } from 'react'
-import { Query } from 'react-apollo'
-import { GET_PRODUCTS } from '../../../graphql/queries'
-import { IErrorLoading, IProductsResponse } from '../../../types'
-import Error from '../../Error'
-import Loader from '../../Loader'
+import React, { FC, useContext, useState } from 'react'
 import { CatalogContext } from '../Catalog'
-import FilteredProductsView from './FilteredProductsView'
+import Filters from './Filters'
+import Products from './Products'
 
 const FilteredProducts: FC = () => {
   const { pathname } = useContext(CatalogContext)
+
+  const [variables, setVariables] = useState({})
+
+  const [productCount, setProductCount] = useState(0)
+
+  const initialVariables = {
+    first: 6,
+    ...(pathname !== '/catalog' && { category: pathname.split('/').pop() }),
+  }
+
   return (
     <div className="content-wrapper catalog__filtered-products__wrapper">
-      <Query
-        query={GET_PRODUCTS}
-        variables={{
-          first: 6,
-          ...(pathname !== '/catalog' && { category: pathname.split('/').pop() }),
-        }}
-      >
-        {
-          ({ error, loading, data}: IErrorLoading & IProductsResponse): ReactNode => {
-            if (loading) return <Loader />
-            if (error) return <Error />
-            return <FilteredProductsView products={data.products} />
-          }
-        }
-      </Query>
+      <div className="catalog__filtered-products">
+        <Filters
+          info={{
+            productCount,
+          }}
+          setVariables={setVariables}
+        />
+        <Products
+          variables={{
+            ...initialVariables,
+            ...variables,
+          }}
+          setProductCount={setProductCount}
+        />
+      </div>
     </div>
   )
 }

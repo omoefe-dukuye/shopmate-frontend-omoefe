@@ -16,7 +16,7 @@ const FilterSize: FC<IFilterSize> = ({ sizes }) => {
 
   return (
     <div className="filter-attributes__size">
-      <h2 className="filter-attributes__header filter-attributes__header--size">Size</h2>
+      <h3 className="filter-header filter-header">Size</h3>
       <div className="filter-attributes__content">
         <div className="filter-attributes__content__items">
           {

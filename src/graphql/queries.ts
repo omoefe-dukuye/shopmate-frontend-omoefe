@@ -19,7 +19,10 @@ export const GET_PRODUCTS = gql`
     $query: String,
     $skip: Int,
     $category: CategoryName,
-    $after: String
+    $after: String,
+    $priceRange: [Int!]
+    $colors: [String!]
+    $sizes: [String!]
   ) {
     products(
       orderBy: $orderBy,
@@ -28,6 +31,9 @@ export const GET_PRODUCTS = gql`
       skip: $skip,
       category: $category,
       after: $after
+      priceRange: $priceRange
+      colors: $colors
+      sizes: $sizes
     ) {
       hasNext
       startCursor

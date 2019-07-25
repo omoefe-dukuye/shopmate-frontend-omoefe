@@ -17,7 +17,7 @@ const FilterColor: FC<IFilterColor> = ({ colors }) => {
 
   return (
     <div className="filter-attributes__color">
-      <h2 className="filter-attributes__header">Color</h2>
+      <h3 className="filter-header filter-header--color">Color</h3>
       <div className="filter-attributes__content">
         <div className="filter-attributes__content__tip">{tipColor}</div>
         <div className="filter-attributes__content__items filter-attributes__content__items--color">
